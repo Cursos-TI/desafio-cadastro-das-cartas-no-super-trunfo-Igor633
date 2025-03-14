@@ -11,7 +11,7 @@ int main() {
     printf("População: ");
     scanf("%d", &populacao1);
     printf("Área: ");
-    scanf("%f", &area1);   
+    scanf("%f", &area1);
     printf("PIB: ");
     scanf("%f", &pib1);
     printf("Número de pontos turísticos: ");
