@@ -1,47 +1,64 @@
 #include <stdio.h>
 
+struct Carta {
+    char estado;
+    char codigo[4];
+    char nomeCidade[50];
+    int populacao;
+    float area;
+    float pib;
+    int pontosTuristicos;
+};
+
+void inserirDados(struct Carta* carta) {
+    printf("Estado (A-H): ");
+    scanf(" %c", &carta->estado);
+    
+    printf("Código da Carta (ex: A01): ");
+    scanf("%s", carta->codigo);
+    
+    printf("Nome da Cidade: ");
+    scanf(" %[^\n]s", carta->nomeCidade);
+    
+    printf("População: ");
+    scanf("%d", &carta->populacao);
+    
+    printf("Área (em km²): ");
+    scanf("%f", &carta->area);
+    
+    printf("PIB: ");
+    scanf("%f", &carta->pib);
+    
+    printf("Número de Pontos Turísticos: ");
+    scanf("%d", &carta->pontosTuristicos);
+}
+
+void exibirDados(struct Carta carta) {
+    printf("Estado: %c\n", carta.estado);
+    printf("Código: %s\n", carta.codigo);
+    printf("Nome da Cidade: %s\n", carta.nomeCidade);
+    printf("População: %d\n", carta.populacao);
+    printf("Área: %.2f km²\n", carta.area);
+    printf("PIB: %.2f bilhões de reais\n", carta.pib);
+    printf("Número de Pontos Turísticos: %d\n", carta.pontosTuristicos);
+}
+
 int main() {
-    // Declaração das variáveis para armazenar os dados das cartas
-    int populacao1, populacao2;
-    float area1, area2, pib1, pib2;
-    int pontos_turisticos1, pontos_turisticos2;
-
-    // Entrada de dados para a primeira carta
-    printf("Digite os dados da primeira carta:\n");
-    printf("População: ");
-    scanf("%d", &populacao1);
-    printf("Área: ");
-    scanf("%f", &area1);
-    printf("PIB: ");
-    scanf("%f", &pib1);
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &pontos_turisticos1);
-
-    // Entrada de dados para a segunda carta
-    printf("\nDigite os dados da segunda carta:\n");
-    printf("População: ");
-    scanf("%d", &populacao2);
-    printf("Área: ");
-    scanf("%f", &area2);
-    printf("PIB: ");
-    scanf("%f", &pib2);
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &pontos_turisticos2);
-
-    // Exibição dos dados da primeira carta
-    printf("\nDados da primeira carta:\n");
-    printf("População: %d\n", populacao1);
-    printf("Área: %.2f\n", area1);
-    printf("PIB: %.2f\n", pib1);
-    printf("Número de pontos turísticos: %d\n", pontos_turisticos1);
-
-    // Exibição dos dados da segunda carta
-    printf("\nDados da segunda carta:\n");
-    printf("População: %d\n", populacao2);
-    printf("Área: %.2f\n", area2);
-    printf("PIB: %.2f\n", pib2);
-    printf("Número de pontos turísticos: %d\n", pontos_turisticos2);
-
+    struct Carta carta1, carta2;
+    
+    printf("Insira os dados da Carta 1:\n");
+    inserirDados(&carta1);
+    
+    printf("\nInsira os dados da Carta 2:\n");
+    inserirDados(&carta2);
+    
+    printf("\nCarta 1:\n");
+    exibirDados(carta1);
+    
+    printf("\nCarta 2:\n");
+    exibirDados(carta2);
+    
     return 0;
 }
+
 
